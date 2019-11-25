@@ -2,6 +2,7 @@ package com.example.bmi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Html
 import android.view.Gravity
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
@@ -24,7 +25,7 @@ class MainActivity : AppCompatActivity() {
                 calBMI()
             }
             catch (e:Exception){
-                val toast: Toast = Toast.makeText(this, "Invalid Input.", Toast.LENGTH_LONG)
+                val toast: Toast = Toast.makeText(this, Html.fromHtml("<font color='#FF0000'>Invalid Input.</font>"), Toast.LENGTH_LONG)
                 toast.setGravity(Gravity.CENTER, 0, 0)
                 toast.show()
             }
