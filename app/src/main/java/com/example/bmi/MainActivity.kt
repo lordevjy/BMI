@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Gravity
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,13 +17,16 @@ class MainActivity : AppCompatActivity() {
         txtWeight.requestFocus()
 
         btnCalculate.setOnClickListener(){
-            if (txtHeight.text.isEmpty() && txtWeight.text.isEmpty()){
+            try {
+                //if (txtHeight.text.isEmpty() && txtWeight.text.isEmpty()){
                 //txtBMI.setText("Enter Weight and Height!")
-                val toast:Toast = Toast.makeText(this,"Invalid Input.",Toast.LENGTH_LONG)
-                toast.setGravity(Gravity.CENTER,0,0)
-                toast.show()
-            }else {
+            //}else {
                 calBMI()
+            }
+            catch (e:Exception){
+                val toast: Toast = Toast.makeText(this, "Invalid Input.", Toast.LENGTH_LONG)
+                toast.setGravity(Gravity.CENTER, 0, 0)
+                toast.show()
             }
         }
 
